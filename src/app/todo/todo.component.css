@@ -18,6 +18,12 @@
   margin-top: 40px;
 }
 
+input {
+  font-size: 18px;
+  border-radius: 3px;
+  border: 1px solid white;
+}
+
 ol {
   padding: 3px 18px;
 }
@@ -38,7 +44,12 @@ button {
 }
 
 #submit {
-  margin-top: 6px;
+  margin-top: 10px;
   background-color: #ff1493;
   color: white;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
 }

@@ -4,18 +4,35 @@
     <h2>A place to store your todos</h2>
 
     <input type="text" id="filter" placeholder="Filter your to-dos" />
+    /> />
+
     <ol>
-      <li *ngFor="let thing of things">
-        <span class="list-container">
+      <li *ngFor="let thing of things; index as i">
+        <div class="list-container">
           <span [ngClass]="{ striked: thing.completed }">
-            <button *ngIf="thing.completed === false">Complete</button
+            <button
+              type="button"
+              *ngIf="!thing.completed"
+              (click)="completeTask(i)"
+            >
+              Complete</button
             >{{ thing.task }}
           </span>
-          <i class="fas fa-times"></i>
-        </span>
+          <i class="fas fa-times" (click)="removeTask(i)"></i>
+        </div>
       </li>
     </ol>
-    <input type="text" id="add" placeholder="Add your to-do" />
-    <button id="submit">Add</button>
+    <form (ngSubmit)="addTask()">
+      <input
+        name="task"
+        [(ngModel)]="newTask.task"
+        type="text"
+        id="add"
+        placeholder="Add your to-do"
+      />
+      <button type="submit" id="submit">
+        Add
+      </button>
+    </form>
   </div>
 </section>
